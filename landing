@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>跳转中...</title></head>
+<body>
+  <p>请稍候，正在跳转至主页面…</p>
+  <script>
+    setTimeout(() => {
+      window.location.href = "https://xyf25.github.io";
+    }, 3000);
+  </script>
+</body>
+</html>
