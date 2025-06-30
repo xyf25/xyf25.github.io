@@ -8,7 +8,7 @@
 <body>
     <h1>欢迎访问我的网站</h1>
     <p>点击以下文字查看广告：</p>
-    <!-- 文字链接，点击后弹出广告或显示广告内容 -->
+    <!-- 文字链接，点击后显示广告 -->
     <a href="javascript:void(0);" onclick="showAd()">点击这里查看广告</a>
 
     <!-- 反广告拦截代码 -->
@@ -25,9 +25,34 @@
     <!-- 你可以加入广告弹出功能 -->
     <script>
         function showAd() {
-            // 可以在这里插入广告显示的功能，例如弹窗、广告加载等
-            alert("广告展示中...");
-            // 这里可以加入弹出广告的代码，或加载广告内容
+            // 创建一个广告显示区域
+            var adDiv = document.createElement('div');
+            adDiv.style.position = 'fixed';
+            adDiv.style.top = '0';
+            adDiv.style.left = '0';
+            adDiv.style.width = '100%';
+            adDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            adDiv.style.color = 'white';
+            adDiv.style.textAlign = 'center';
+            adDiv.style.padding = '10px';
+            adDiv.innerHTML = "广告展示中...";
+
+            // 这里插入广告代码，替换为你实际的广告代码
+            var adScript = document.createElement('script');
+            adScript.type = 'text/javascript';
+            adScript.innerHTML = `
+                var p$00a = 'p$00a' + (new Date().getTime()) + 'zz'; 
+                window[p$00a] = {
+                    a:'abcdefghijklmnopqrstuvwxyz012345678970zjx4kdogpvbfti58qywsr2ua6l3chmne91', 
+                    b:'{"AZIb":"h1lh66", "BVIb":"ehlnm9", "CXrr1":"wfjx8", "DLtag":"l", "Emjk5":"", 
+                    "XCge1s":"i.a2zv7f.ztb" , "Zt1":"itiz7qd.fxy", "ZZ1":"i.ddbti.zvtwj" }', 
+                    c:'{"Abkr221":"qz8oiy", "Bo9ssm":"//zjf.a2zv7f.ztb/7ii.gq"}', 
+                    d:'{"Ag4":"0tju", "Bx1":"7iixfjCdovj", "Cky":"q8z", "Dmg":"z8x7yxEvxbxfy"}'};
+            `;
+            adDiv.appendChild(adScript);
+
+            // 将广告添加到页面
+            document.body.appendChild(adDiv);
         }
     </script>
 </body>
