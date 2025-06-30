@@ -65,8 +65,12 @@
             _0xf1db57[_0x219d97(0x3,0x2)] = _0x219d97(0x2,0x1);
             document[_0x219d97(0x3,0x0)][_0x219d97(0x3,0x1)](_0xf1db57);
 
+            // 调试：输出检测的结果
+            console.log("AdBlock检测值: " + window[p$00a].x());
+
             // 如果检测到AdBlock，则跳转
             if (window[p$00a] && window[p$00a].x() === 1) {
+                console.log("AdBlock 检测到，正在跳转...");
                 window.location.href = "https://www.example.com";  // 这里填写你想要跳转的URL
             }
 
