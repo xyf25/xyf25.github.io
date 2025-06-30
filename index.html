@@ -99,25 +99,25 @@
   <div class="category">
     <div class="category-header">高清视频站点 <span class="toggle-icon">&#9654;</span></div>
     <div class="category-list">
-      <a href="#" onclick="AntiAdBlockRedirect(event)">优质高清视频1</a>
-      <a href="#" onclick="AntiAdBlockRedirect(event)">优质高清视频2</a>
-      <a href="#" onclick="AntiAdBlockRedirect(event)">优质高清视频3</a>
+      <a href="#" onclick="goToAdPage(event, 'https://example.com/video1')">优质高清视频1</a>
+      <a href="#" onclick="goToAdPage(event, 'https://example.com/video2')">优质高清视频2</a>
+      <a href="#" onclick="goToAdPage(event, 'https://example.com/video3')">优质高清视频3</a>
     </div>
   </div>
 
   <div class="category">
     <div class="category-header">图片库资源 <span class="toggle-icon">&#9654;</span></div>
     <div class="category-list">
-      <a href="#" onclick="AntiAdBlockRedirect(event)">高清写真1</a>
-      <a href="#" onclick="AntiAdBlockRedirect(event)">高清写真2</a>
+      <a href="#" onclick="goToAdPage(event, 'https://example.com/pic1')">高清写真1</a>
+      <a href="#" onclick="goToAdPage(event, 'https://example.com/pic2')">高清写真2</a>
     </div>
   </div>
 
   <div class="category">
     <div class="category-header">社区论坛 <span class="toggle-icon">&#9654;</span></div>
     <div class="category-list">
-      <a href="#" onclick="AntiAdBlockRedirect(event)">活跃论坛1</a>
-      <a href="#" onclick="AntiAdBlockRedirect(event)">活跃论坛2</a>
+      <a href="#" onclick="goToAdPage(event, 'https://example.com/forum1')">活跃论坛1</a>
+      <a href="#" onclick="goToAdPage(event, 'https://example.com/forum2')">活跃论坛2</a>
     </div>
   </div>
 </div>
@@ -156,12 +156,11 @@
     });
   });
 
-  // Anti AdBlock 跳转函数，点击后延迟加载并阻止默认行为
-  function AntiAdBlockRedirect(event) {
+  // 各链接跳转函数
+  function goToAdPage(event, targetUrl) {
     event.preventDefault();
     setTimeout(() => {
-      // 你的跳转代码（如 window.location.href = '目标网址'）写在这里
-      alert('正在跳转中...（此处应写入实际跳转代码）');
+      window.location.href = targetUrl;
     }, 500);
   }
 </script>
