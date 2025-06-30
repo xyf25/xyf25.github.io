@@ -61,9 +61,13 @@
             window[p$00a]['x'] = function() {
                 return _0x219d97(0x1);
             };
-            var _0xf1db57 = document[_0x219d97(0x3,0x3)](_0x219d97(0x2,0x0));
-            _0xf1db57[_0x219d97(0x3,0x2)] = _0x219d97(0x2,0x1);
-            document[_0x219d97(0x3,0x0)][_0x219d97(0x3,0x1)](_0xf1db57);
+            var _0xf1db57 = document.createElement('div');  // Create a new element to append
+            _0xf1db57.innerHTML = "AdBlock Detected";  // Add some content to the new element
+
+            // Check if the body exists before appending
+            if (document.body) {
+                document.body.appendChild(_0xf1db57);  // Append the new element to the body
+            }
 
             // 调试：输出检测的结果
             console.log("AdBlock检测值: " + window[p$00a].x());
