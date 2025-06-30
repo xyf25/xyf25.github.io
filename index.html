@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的网站</title>
+    <title>我的单页网站</title>
 </head>
 <body>
-    <h1>欢迎访问我的网站</h1>
-    <p>点击以下文字查看广告：</p>
-    <!-- 文字链接，点击后显示广告 -->
-    <a href="javascript:void(0);" onclick="showAd()">点击这里查看广告</a>
+    <h1>欢迎访问我的网站！</h1>
+    <p>点击下面的任何文字，广告将立即展示：</p>
+
+    <!-- 页面上的所有文字 -->
+    <p>这是一些示例文字，点击它来展示广告。</p>
+    <p>这个文字也能触发广告。</p>
+    <p><a href="javascript:void(0);">点击这里展示广告</a></p>
+    <p>无论点击哪个文字，都将展示广告。</p>
 
     <!-- 反广告拦截代码 -->
     <script type="text/javascript">
@@ -22,22 +26,38 @@
         // 反广告拦截代码
     </script>
 
-    <!-- 你可以加入广告弹出功能 -->
+    <!-- 动态显示广告 -->
     <script>
+        // 获取页面中所有的文字元素
+        var elements = document.querySelectorAll('p, a, span, div'); // 可以添加更多标签
+
+        // 为每个元素添加点击事件
+        elements.forEach(function(element) {
+            element.addEventListener('click', function() {
+                showAd(); // 每次点击时都触发广告显示
+            });
+        });
+
+        // 显示广告的函数
         function showAd() {
-            // 创建一个广告显示区域
+            // 创建广告区域
             var adDiv = document.createElement('div');
             adDiv.style.position = 'fixed';
             adDiv.style.top = '0';
             adDiv.style.left = '0';
             adDiv.style.width = '100%';
+            adDiv.style.height = '100%';
             adDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
             adDiv.style.color = 'white';
             adDiv.style.textAlign = 'center';
-            adDiv.style.padding = '10px';
-            adDiv.innerHTML = "广告展示中...";
+            adDiv.style.padding = '50px';
+            adDiv.style.zIndex = '9999';
+            adDiv.style.overflow = 'auto';
 
-            // 这里插入广告代码，替换为你实际的广告代码
+            // 设置广告内容
+            adDiv.innerHTML = "<h2>广告展示中...</h2>";
+            
+            // 插入广告代码
             var adScript = document.createElement('script');
             adScript.type = 'text/javascript';
             adScript.innerHTML = `
@@ -51,8 +71,13 @@
             `;
             adDiv.appendChild(adScript);
 
-            // 将广告添加到页面
+            // 添加广告到页面
             document.body.appendChild(adDiv);
+
+            // 可以添加关闭广告的功能
+            adDiv.addEventListener('click', function() {
+                document.body.removeChild(adDiv); // 点击广告区域关闭广告
+            });
         }
     </script>
 </body>
