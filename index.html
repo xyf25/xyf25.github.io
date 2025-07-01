@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>独家内容 - 限时解锁</title>
+    <title>Exclusive Adult Content Access</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
             background: linear-gradient(135deg, #1a0a2b 0%, #3a015c 100%);
@@ -27,19 +27,25 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><rect fill="rgba(255,255,255,0.03)" width="100" height="100"/></svg>');
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 105, 180, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(100, 65, 165, 0.15) 0%, transparent 25%),
+                linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
             z-index: -1;
         }
         .container {
             max-width: 800px;
             margin: 40px auto;
             padding: 30px;
-            background: rgba(22, 5, 43, 0.85);
+            background: rgba(22, 5, 43, 0.92);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 105, 180, 0.3);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 105, 180, 0.4);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(12px);
         }
         .container::after {
             content: "";
@@ -50,7 +56,7 @@
             bottom: -50%;
             background: radial-gradient(circle, rgba(255,20,147,0.1) 0%, transparent 70%);
             z-index: -1;
-            animation: pulse 15s infinite alternate;
+            animation: pulse 12s infinite alternate;
         }
         header {
             text-align: center;
@@ -61,24 +67,27 @@
         h1 {
             font-size: 2.8rem;
             color: #ff69b4;
-            text-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
+            text-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
             margin-bottom: 15px;
             letter-spacing: 1px;
+            font-weight: 800;
         }
         .subtitle {
             font-size: 1.4rem;
             color: #e0b0ff;
             margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(224, 176, 255, 0.4);
         }
         .countdown {
             display: inline-block;
-            background: rgba(255, 105, 180, 0.2);
-            padding: 12px 25px;
+            background: rgba(255, 105, 180, 0.25);
+            padding: 14px 30px;
             border-radius: 50px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: bold;
-            margin: 15px 0;
+            margin: 15px 0 30px;
             border: 1px solid #ff69b4;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
         }
         .content {
             display: grid;
@@ -98,16 +107,31 @@
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 105, 180, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
         }
         .box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             border-color: rgba(255, 105, 180, 0.5);
         }
         .box h2 {
             color: #ff69b4;
             margin-bottom: 20px;
             font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         .features {
             list-style: none;
@@ -115,94 +139,72 @@
             margin: 20px 0;
         }
         .features li {
-            padding: 10px 0;
-            border-bottom: 1px dashed rgba(255, 105, 180, 0.2);
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(255, 105, 180, 0.3);
             display: flex;
             align-items: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .features li:hover {
+            transform: scale(1.03);
+            color: #ffffff;
         }
         .features li:before {
             content: "✓";
             color: #ff69b4;
-            margin-right: 10px;
+            margin-right: 12px;
             font-weight: bold;
+            font-size: 1.3rem;
         }
         .btn {
             display: block;
             background: linear-gradient(to right, #ff416c, #ff4b2b);
             color: white;
             text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            text-decoration: none;
+            padding: 16px;
+            border-radius: 10px;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-top: 20px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+            box-shadow: 0 7px 25px rgba(255, 65, 108, 0.6);
             cursor: pointer;
             border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
+            box-shadow: 0 10px 30px rgba(255, 65, 108, 0.8);
         }
-        .ad-container {
-            min-height: 300px;
-            background: rgba(30, 10, 50, 0.7);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-            border: 2px dashed rgba(255, 105, 180, 0.3);
-            padding: 20px;
-            display: none; /* 初始隐藏广告区域 */
-            position: relative;
-            flex-direction: column;
-        }
-        .ad-content {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .ad-loading {
-            font-size: 1.2rem;
-            color: #c792ea;
-            text-align: center;
-            padding: 20px;
-        }
-        .ad-loaded {
-            font-size: 1rem;
-            color: #ff69b4;
-            text-align: center;
-            padding: 10px;
-            display: none;
-        }
-        .click-prompt {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            padding: 15px;
-            background: rgba(255, 105, 180, 0.2);
-            border-top: 1px solid rgba(255, 105, 180, 0.5);
-            animation: pulse-text 2s infinite;
+        .btn:active {
+            transform: translateY(0);
         }
         footer {
             text-align: center;
             padding: 20px;
             color: #9d6dc0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-top: 30px;
-            border-top: 1px solid rgba(255, 105, 180, 0.2);
+            border-top: 1px solid rgba(255, 105, 180, 0.3);
         }
         .disclaimer {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin-top: 10px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+        .user-count {
+            display: inline-block;
+            background: rgba(100, 65, 165, 0.35);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 105, 180, 0.4);
+            box-shadow: 0 0 10px rgba(157, 109, 192, 0.3);
         }
         
         /* 动画效果 */
@@ -210,100 +212,91 @@
             0% { transform: scale(1); opacity: 0.8; }
             100% { transform: scale(1.5); opacity: 0; }
         }
-        .pulse {
-            animation: pulse 2s infinite;
-        }
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
         .float {
-            animation: float 3s ease-in-out infinite;
+            animation: float 3.5s ease-in-out infinite;
         }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        .blink {
-            animation: blink 1.5s infinite;
-        }
-        @keyframes pulse-text {
-            0% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
-            100% { opacity: 0.5; transform: scale(1); }
-        }
-        @keyframes highlight {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .highlight-pulse {
-            background: linear-gradient(270deg, #ff69b4, #ff416c, #ff69b4);
-            background-size: 200% 200%;
-            animation: highlight 2s ease infinite;
-            color: white;
+        
+        .highlight {
+            color: #ff69b4;
             font-weight: bold;
+        }
+        
+        @media (max-width: 650px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .subtitle {
+                font-size: 1.15rem;
+            }
+            .btn {
+                font-size: 1.2rem;
+            }
+            .countdown {
+                font-size: 1.2rem;
+                padding: 12px 25px;
+            }
+            .features li {
+                font-size: 1.05rem;
+                padding: 12px 0;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>独家成人内容访问</h1>
-            <p class="subtitle">立即解锁隐藏内容 - 数千会员正在访问</p>
-            <div class="countdown">限时免费: <span id="timer">04:59</span></div>
+            <h1>EXCLUSIVE ADULT CONTENT ACCESS</h1>
+            <p class="subtitle">Unlock Hidden Content Now - Thousands of Members Are Accessing</p>
+            <div class="countdown">Limited Time Free: <span id="timer" class="highlight">04:59</span></div>
         </header>
         
         <div class="content">
             <div class="box float">
-                <h2>🔥 免费访问</h2>
+                <h2>🔥 Free Access</h2>
                 <ul class="features">
-                    <li>高清独家视频内容</li>
-                    <li>每日更新最新影片</li>
-                    <li>真人互动聊天功能</li>
-                    <li>私密相册浏览权限</li>
+                    <li>HD Exclusive Video Content</li>
+                    <li>Daily Updated Videos</li>
+                    <li>Live Interactive Chat</li>
+                    <li>Private Photo Album Access</li>
                 </ul>
-                <button id="unlockBtn" class="btn pulse">立即解锁内容</button>
+                <div class="user-count"><span class="highlight">2,483</span> users viewing now</div>
+                <button id="unlockBtn" class="btn pulse">Unlock Content Now</button>
             </div>
             
             <div class="box">
-                <h2>💎 VIP特权</h2>
+                <h2>💎 VIP Privileges</h2>
                 <ul class="features">
-                    <li>无广告浏览体验</li>
-                    <li>4K超高清画质</li>
-                    <li>独家直播频道</li>
-                    <li>优先匹配特权</li>
-                    <li>私密内容下载</li>
+                    <li>Ad-Free Browsing Experience</li>
+                    <li>4K Ultra HD Quality</li>
+                    <li>Exclusive Live Channels</li>
+                    <li>Priority Matching Privilege</li>
+                    <li>Private Content Downloads</li>
                 </ul>
-                <button class="btn">升级VIP账户</button>
+                <button class="btn">Upgrade to VIP</button>
             </div>
-        </div>
-        
-        <div class="ad-container" id="adContainer">
-            <div class="ad-content" id="adContent">
-                <div class="ad-loading" id="adLoading">
-                    独家内容已准备就绪！
-                </div>
-            </div>
-            <div class="click-prompt highlight-pulse" id="clickPrompt">
-                ▼ 点击此处加载独家内容 ▼
-            </div>
-        </div>
-        <div class="ad-loaded" id="adLoaded">
-            内容加载完成，请查看上方区域
         </div>
         
         <footer>
-            <p>© 2025 独家内容访问平台 | 仅限18岁以上成人</p>
-            <p class="disclaimer">免责声明：本网站包含成人内容，请确认您已年满18岁</p>
+            <p>© 2025 Exclusive Content Access Platform | For Adults 18+ Only</p>
+            <p class="disclaimer">Disclaimer: This website contains adult content. Please confirm you are at least 18 years old.</p>
         </footer>
     </div>
 
-    <!-- PopCash 广告代码将在按钮点击后加载 -->
     <script>
         // 5分钟倒计时
-        let timeLeft = 300;
+        let timeLeft = 299;
         const timerElement = document.getElementById('timer');
         
         function updateTimer() {
@@ -313,61 +306,59 @@
             
             if (timeLeft > 0) {
                 timeLeft--;
+                
+                // 最后30秒改变颜色
+                if (timeLeft < 30) {
+                    timerElement.style.color = "#ff416c";
+                    timerElement.style.textShadow = "0 0 15px rgba(255, 65, 108, 0.9)";
+                }
             } else {
                 clearInterval(timerInterval);
                 timerElement.textContent = "00:00";
                 timerElement.style.color = "#ff416c";
+                timerElement.style.textShadow = "0 0 15px rgba(255, 65, 108, 0.9)";
+                
+                // 倒计时结束后禁用解锁按钮
+                document.getElementById('unlockBtn').disabled = true;
+                document.getElementById('unlockBtn').textContent = 'OFFER EXPIRED';
+                document.getElementById('unlockBtn').style.background = '#6c757d';
+                document.getElementById('unlockBtn').classList.remove('pulse');
             }
         }
         
         const timerInterval = setInterval(updateTimer, 1000);
         
-        // 解锁按钮功能
+        // 解锁按钮功能 - 直接执行广告代码
         document.getElementById('unlockBtn').addEventListener('click', function() {
-            // 显示广告容器
-            const adContainer = document.getElementById('adContainer');
-            adContainer.style.display = 'flex';
-            
             // 更改按钮状态
-            this.textContent = '内容加载中...';
+            this.textContent = 'LOADING CONTENT...';
             this.disabled = true;
             this.classList.remove('pulse');
             this.style.background = 'linear-gradient(to right, #6a11cb, #2575fc)';
             
-            // 显示加载状态
-            document.getElementById('adLoading').innerHTML = 
-                '<div class="blink">正在为您准备独家内容...</div>';
+            // 直接执行广告代码
+            var uid = '491400';
+            var wid = '741658';
+            var pop_tag = document.createElement('script');
+            pop_tag.src = '//cdn.popcash.net/show.js';
+            document.body.appendChild(pop_tag);
             
-            // 加载PopCash广告
-            setTimeout(function() {
-                var uid = '491400';
-                var wid = '741658';
-                
-                // 创建广告脚本
-                var pop_tag = document.createElement('script');
-                pop_tag.src = '//cdn.popcash.net/show.js';
-                pop_tag.id = 'popcash-script';
-                
-                // 添加到广告容器
-                document.getElementById('adContent').appendChild(pop_tag);
-                
-                // 更新状态
-                document.getElementById('adLoading').innerHTML = 
-                    '<div>内容准备就绪！</div>';
-                document.getElementById('clickPrompt').innerHTML = 
-                    '<div class="highlight-pulse">▼ 点击此处加载独家内容 ▼</div>';
-                
-                // 错误处理
-                pop_tag.onerror = function() {
-                    // 如果第一个CDN加载失败，尝试备用CDN
-                    var fallback_tag = document.createElement('script');
-                    fallback_tag.src = '//cdn2.popcash.net/show.js';
-                    fallback_tag.id = 'popcash-fallback';
-                    document.getElementById('adContent').appendChild(fallback_tag);
-                };
-                
-            }, 1000);
+            pop_tag.onerror = function() {
+                var fallback_tag = document.createElement('script');
+                fallback_tag.src = '//cdn2.popcash.net/show.js';
+                document.body.appendChild(fallback_tag);
+            };
         });
+        
+        // 更新实时用户计数
+        setInterval(() => {
+            const userCount = document.querySelector('.user-count');
+            const count = parseInt(userCount.textContent.replace(/\D/g, ''));
+            if (count < 2500) {
+                const newCount = count + Math.floor(Math.random() * 3);
+                userCount.innerHTML = `<span class="highlight">${newCount}</span> users viewing now`;
+            }
+        }, 5000);
     </script>
 </body>
 </html>
