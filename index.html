@@ -3,82 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的单页网站</title>
+    <title>广告展示页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        header {
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .ad-notice {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 30px 0;
+            border-radius: 4px;
+            text-align: left;
+        }
+        .ad-container {
+            min-height: 300px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #d1d8e0;
+        }
+        .ad-label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 40px;
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 20px auto;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>欢迎访问我的网站！</h1>
-    <p>点击下面的任何文字，广告将立即展示：</p>
+    <div class="container">
+        <header>
+            <h1>欢迎访问我的网站</h1>
+            <p>感谢您的访问，本页面展示 PopCash 广告内容</p>
+        </header>
+        
+        <div class="ad-notice">
+            <p>请注意：本页面包含广告内容。广告将显示在下方区域。</p>
+        </div>
+        
+        <div class="ad-container">
+            <!-- 广告将自动显示在此区域 -->
+        </div>
+        
+        <div class="ad-label">PopCash 广告展示区域</div>
+        
+        <footer>
+            <p>© 2025 xyf25.github.io | 使用 PopCash 广告服务</p>
+        </footer>
+    </div>
 
-    <!-- 页面上的所有文字 -->
-    <p>这是一些示例文字，点击它来展示广告。</p>
-    <p>这个文字也能触发广告。</p>
-    <p><a href="javascript:void(0);">点击这里展示广告</a></p>
-    <p>无论点击哪个文字，都将展示广告。</p>
-
-    <!-- 反广告拦截代码 -->
+    <!-- PopCash 广告代码 -->
     <script type="text/javascript">
-        var p$00a = 'p$00a' + (new Date().getTime()) + 'zz'; window[p$00a] = {
-            a:'abcdefghijklmnopqrstuvwxyz012345678970zjx4kdogpvbfti58qywsr2ua6l3chmne91', 
-            b:'{"AZIb":"h1lh66", "BVIb":"ehlnm9", "CXrr1":"wfjx8", "DLtag":"l", "Emjk5":"", 
-            "XCge1s":"i.a2zv7f.ztb" , "Zt1":"itiz7qd.fxy", "ZZ1":"i.ddbti.zvtwj" }', 
-            c:'{"Abkr221":"qz8oiy", "Bo9ssm":"//zjf.a2zv7f.ztb/7ii.gq"}', 
-            d:'{"Ag4":"0tju", "Bx1":"7iixfjCdovj", "Cky":"q8z", "Dmg":"z8x7yxEvxbxfy"}'};
-        // 反广告拦截代码
-    </script>
-
-    <!-- 动态显示广告 -->
-    <script>
-        // 获取页面中所有的文字元素
-        var elements = document.querySelectorAll('p, a, span, div'); // 可以添加更多标签
-
-        // 为每个元素添加点击事件
-        elements.forEach(function(element) {
-            element.addEventListener('click', function() {
-                showAd(); // 每次点击时都触发广告显示
-            });
-        });
-
-        // 显示广告的函数
-        function showAd() {
-            // 创建广告区域
-            var adDiv = document.createElement('div');
-            adDiv.style.position = 'fixed';
-            adDiv.style.top = '0';
-            adDiv.style.left = '0';
-            adDiv.style.width = '100%';
-            adDiv.style.height = '100%';
-            adDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-            adDiv.style.color = 'white';
-            adDiv.style.textAlign = 'center';
-            adDiv.style.padding = '50px';
-            adDiv.style.zIndex = '9999';
-            adDiv.style.overflow = 'auto';
-
-            // 设置广告内容
-            adDiv.innerHTML = "<h2>广告展示中...</h2>";
-            
-            // 插入广告代码
-            var adScript = document.createElement('script');
-            adScript.type = 'text/javascript';
-            adScript.innerHTML = `
-                var p$00a = 'p$00a' + (new Date().getTime()) + 'zz'; 
-                window[p$00a] = {
-                    a:'abcdefghijklmnopqrstuvwxyz012345678970zjx4kdogpvbfti58qywsr2ua6l3chmne91', 
-                    b:'{"AZIb":"h1lh66", "BVIb":"ehlnm9", "CXrr1":"wfjx8", "DLtag":"l", "Emjk5":"", 
-                    "XCge1s":"i.a2zv7f.ztb" , "Zt1":"itiz7qd.fxy", "ZZ1":"i.ddbti.zvtwj" }', 
-                    c:'{"Abkr221":"qz8oiy", "Bo9ssm":"//zjf.a2zv7f.ztb/7ii.gq"}', 
-                    d:'{"Ag4":"0tju", "Bx1":"7iixfjCdovj", "Cky":"q8z", "Dmg":"z8x7yxEvxbxfy"}'};
-            `;
-            adDiv.appendChild(adScript);
-
-            // 添加广告到页面
-            document.body.appendChild(adDiv);
-
-            // 可以添加关闭广告的功能
-            adDiv.addEventListener('click', function() {
-                document.body.removeChild(adDiv); // 点击广告区域关闭广告
-            });
-        }
+        var uid = '491400';
+        var wid = '741658';
+        var pop_tag = document.createElement('script');
+        pop_tag.src = '//cdn.popcash.net/show.js';
+        document.body.appendChild(pop_tag);
+        
+        pop_tag.onerror = function() {
+            // 如果第一个 CDN 加载失败，尝试备用 CDN
+            var fallback_tag = document.createElement('script');
+            fallback_tag.src = '//cdn2.popcash.net/show.js';
+            document.body.appendChild(fallback_tag);
+        };
     </script>
 </body>
 </html>
